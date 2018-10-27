@@ -1,0 +1,28 @@
+﻿<Window x:Class="Chat.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Chat"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525" Closing="Window_Closing">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.7*"/>
+            <ColumnDefinition Width="0.3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.65*"/>
+                <RowDefinition Height="0.25*" />
+                <RowDefinition Height="0.1*" />
+            </Grid.RowDefinitions>
+            <ListBox Grid.Row="0" ItemsSource="{ Binding Path=listBoxElements }"/>
+            <TextBox Grid.Row="1" Text="{ Binding Path=usersMessage }"/>
+            <Button Grid.Row="2" Command="{ Binding Path=sendMessage }">
+                send
+            </Button>
+        </Grid>
+        <ListBox Grid.Column="1" ItemsSource="{ Binding Path=usersOnline }"/>
+    </Grid>
+</Window>
